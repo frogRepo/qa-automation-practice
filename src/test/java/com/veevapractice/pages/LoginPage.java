@@ -2,6 +2,10 @@ package com.veevapractice.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
     
@@ -28,6 +32,12 @@ public class LoginPage {
     }
 
     public boolean isSuccessMessageDisplayed() {
-        return driver.findElement(successMessage).isDisplayed();
+    try {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
+        return true;
+    } catch (Exception e) {
+        return false;
     }
+}
 }
