@@ -17,7 +17,8 @@ public class LoginPage {
     // get locators using field and selenium
     private By usernameField = By.id("username");
     private By passwordField = By.id("password");
-    private By loginButton = By.cssSelector("button[type='submit']");
+    //private By loginButton = By.cssSelector("button[type='submit']");
+    private By loginButton = By.cssSelector("button.radius");
     private By flashMessage = By.id("flash");
 
     public LoginPage(WebDriver driver) {

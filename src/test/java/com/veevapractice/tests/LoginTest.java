@@ -17,7 +17,7 @@ public class LoginTest {
     private WebDriver driver;
     private LoginPage loginPage;
 
-
+    // setup fresh browser
     @BeforeEach
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -41,7 +41,7 @@ public class LoginTest {
         loginPage.loginAs("wronguser", "wrongpassword");
         assertFalse(loginPage.isLoginSuccessful());
     }
-
+    // closes browser
     @AfterEach
     public void tearDown() {
         if (driver != null) {
