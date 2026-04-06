@@ -31,11 +31,12 @@ public class LoginPage {
         driver.findElement(loginButton).click();
     }
 
-    public boolean isSuccessMessageDisplayed() {
+    public boolean isLoginSuccessful() {
     try {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(flashMessage));
-        return true;
+        String messageText = driver.findElement(flashMessage).getText();
+        return messageText.contains("You have logged into a secure area!");
     } catch (Exception e) {
         return false;
     }

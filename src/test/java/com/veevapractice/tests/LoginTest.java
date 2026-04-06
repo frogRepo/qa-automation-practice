@@ -31,14 +31,14 @@ public class LoginTest {
     public void validLoginTest() {
         loginPage.navigateTo();
         loginPage.loginAs("tomsmith", "SuperSecretPassword!");
-        assertTrue(loginPage.isSuccessMessageDisplayed());
+        assertTrue(loginPage.isLoginSuccessful());
     }
 
     @Test
     public void invalidLoginTest() {
         loginPage.navigateTo();
         loginPage.loginAs("wronguser", "wrongpassword");
-        assertFalse(loginPage.isSuccessMessageDisplayed());
+        assertFalse(loginPage.isLoginSuccessful());
     }
 
     @AfterEach
