@@ -15,7 +15,7 @@ public class LoginPage {
     private By usernameField = By.id("username");
     private By passwordField = By.id("password");
     private By loginButton = By.cssSelector("button[type='submit']");
-    private By successMessage = By.id("flash");
+    private By flashMessage = By.id("flash");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -34,7 +34,7 @@ public class LoginPage {
     public boolean isSuccessMessageDisplayed() {
     try {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(flashMessage));
         return true;
     } catch (Exception e) {
         return false;
