@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+
+// represents web page
+// locators and methods to cover user actions
 public class LoginPage {
     
     private WebDriver driver;
@@ -31,14 +34,16 @@ public class LoginPage {
         driver.findElement(loginButton).click();
     }
 
+    // try catch so if something goes wrong and we get no message no crash
+    // check if the message matches the one given if logged in successfully
     public boolean isLoginSuccessful() {
     try {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(flashMessage));
         String messageText = driver.findElement(flashMessage).getText();
-        return messageText.contains("You have logged into a secure area!");
+        return messageText.contains("You logged into a secure area!");
     } catch (Exception e) {
         return false;
     }
-}
+    }
 }
